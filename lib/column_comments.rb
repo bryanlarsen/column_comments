@@ -13,7 +13,7 @@ module ActiveRecord::ConnectionAdapters
     def initialize(name, default, sql_type = nil, null = true, comment = nil)
       @original_default = default
       super
-      @default = nil if missing_default_forged_as_empty_string?
+      @default = nil if missing_default_forged_as_empty_string?(default)
     end
   end
   
