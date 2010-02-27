@@ -1,0 +1,1 @@
+require 'column_comments'
