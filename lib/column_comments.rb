@@ -69,9 +69,9 @@ module ActiveRecord::ConnectionAdapters
     end
     
     # Allow column comments to be explicitly set
-    def column_comment(table_name, column_name, comment) #:nodoc:
-      rename_column(table_name, column_name, column_name, :comment => comment)
-    end
+    #def column_comment(table_name, column_name, comment) #:nodoc:
+    #  rename_column(table_name, column_name, column_name, :comment => comment)
+    #end
     
     # Mass assignment of comments in the form of a hash.  Example:
     #   column_comments {
