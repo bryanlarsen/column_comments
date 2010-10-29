@@ -9,7 +9,7 @@ module ActiveRecord::ConnectionAdapters
     end
   end
   
-  class MysqlColumn < Column #:nodoc:
+  class MysqlColumn < (defined?(JdbcColumn) ? JdbcColumn : Column) #:nodoc:
     def initialize(name, default, sql_type = nil, null = true, comment = nil)
       @original_default = default
       super
@@ -41,7 +41,7 @@ module ActiveRecord::ConnectionAdapters
   end
   
   # Get comments on each when querying for column structure
-  class MysqlAdapter < AbstractAdapter
+  class MysqlAdapter < (defined?(JdbcAdapter) ? JdbcAdapter : AbstractAdapter)
     def columns(table_name, name = nil)#:nodoc:
       sql = "SHOW FULL FIELDS FROM #{table_name}"
       columns = []
